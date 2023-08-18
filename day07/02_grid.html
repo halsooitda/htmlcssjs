@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        div{
+            float: left;
+            height: 100px;
+        }
+
+        .w100{
+            width: 100%;
+        }
+        .w50{
+            width: 50%;
+        }
+        .w25{
+            width: 25%;
+        }
+
+        .red{
+            background-color: brown;
+        }
+        .orange{
+            background-color: chocolate;
+        }
+        .yellow{
+            background-color: darkgoldenrod;
+        }
+        .green{
+            background-color: darkgreen;
+        }
+        .blue{
+            background-color: darkblue;
+        }
+        .dark-purple{
+            background-color: indigo;
+        }
+        .purple{
+            background-color: blueviolet;
+        }
+        
+        .clear{
+            clear: both;
+        }
+        /* 이 뒤로 오는 div들은 float left영향을 받지 않도록 */
+    </style>
+</head>
+<body>
+    <div class="red w100"></div>
+    <div class="orange w25"></div>
+    <div class="yellow w50"></div>
+    <div class="green w25"></div>
+    <div class="blue w50"></div>
+    <div class="dark-purple w50"></div>
+    <div class="purple w100 clear"></div>
+    <!-- 해당 클래스가 어떤 역할을 하는지에 따라 클래스명을 짓는다. -->
+</body>
+</html>

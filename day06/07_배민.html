@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배달의 민족</title>
+    <style>
+        @font-face {
+            font-family: dohyeon;
+            src: url(/font/BMHANNAProOTF.otf);
+        }
+        /* 위에는 선언만. 적용X */
+        body{
+            font-family: dohyeon;
+            background-color: #2AC1BC;
+        }
+        div{
+            text-align: center;
+        }
+        .header{
+            margin: 50px;
+            color: rgb(233, 233, 233);
+        }
+        .header>h1{
+            font-size: 50px;
+        }
+        .header>h3{
+            font-size: 35px;
+        }
+        .menu{
+            width: 300px;
+            background-color: white;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .menu>div:first-child{
+            /* 메뉴의 첫번째 디브는 이미지임 */
+            width: 300px;
+            height: 200px;
+            background-size: 300px 200px;
+            background-color: antiquewhite;
+            border-radius: 10px 10px 0px 0px;
+        }
+        .menu>div>h4{
+            font-size: 25px;
+        }
+        .menu>div:last-child{
+            padding: 20px;
+        }
+        .menu>div>p:last-child{
+            color: blue;
+        }
+        #sushi{
+            background-image: url(/image/초밥.jpg);
+        }
+        .pizza{
+            background-image: url(/image/피자.jpg);
+        }
+        .dduck{
+            background-image: url(/image/떡볶이.png);
+        }
+        .jjajang{
+            background-image: url(/image/짜장면.webp);
+        }
+        .menu>div>p:last-child:hover{
+            color: rgb(0, 0, 177);
+            cursor: pointer;
+        }
+
+        @keyframes ani{
+            0%{
+                right: 20px;
+                bottom: 20px;
+            }
+            50%{
+                right: 100px;
+                bottom: 20px;
+            }
+            100%{
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+        img{
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            right: 20px;
+            bottom: 20px;
+            cursor: pointer;
+
+            animation: ani 3s 1;
+        }
+
+        img:hover{
+            width: 105px;
+            height: 105px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </div>
+
+    <div class="menu">
+        <div id="sushi"></div>
+        <div>
+            <h4>신선한 초밥</h4>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="pizza"></div>
+        <div>
+            <h4>맛있는 피자</h4>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p><del>32,000원</del> 24,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="dduck"></div>
+        <div>
+            <h4>매콤한 떡볶이</h4>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p><del>14,000원</del> 10,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="jjajang"></div>
+        <div>
+            <h4>가성비 짜장면</h4>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p><del>8,000원</del> 6,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    <img src="/image/배민.png" alt="">
+
+</body>
+</html>

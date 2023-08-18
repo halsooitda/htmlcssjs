@@ -1,0 +1,91 @@
+@import url(reset.css);
+@font-face {
+    font-family: font;
+    src: url(/font/Nanum_Myeongjo/NanumMyeongjo-Regular.ttf);
+}
+
+body{
+    font-family: font;
+    min-width: 900px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style: none;
+}
+.navbar{
+    height: 60px;
+    padding: 10px 30px; /* 위아래 양쪽 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navbar>a{
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold; /*or 700*/
+}
+.navbar>ul{
+    display: flex;
+    justify-content: space-around;
+}
+.navbar>ul>li{
+    margin: 0 10px; /* 위 양쪽 아래*/
+    line-height: 60px;
+}
+.main_img{
+    width: 100%;
+    height: 400px;
+    background-image: url(/image/배너.gif);
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+    /* margin: 20px 0; */
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    margin: 60px auto;
+    color: rgb(58, 58, 58);
+}
+.products{
+    /* 그림사이즈 230*230 양쪽마진 20 */
+    /* 230*3 + 120 = 810 */
+    width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    /* width크기를 넘어가면 한줄 넘어가도록 */
+    flex-direction: row;
+    justify-content: center;
+}
+.products>a{
+    margin: 0 20px;
+    position: relative;
+    /* sale을 a박스 안에 넣어야하므로 */
+}
+.products>a>img{
+    width: 230px;
+    height: 230px;
+}
+.products ul{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.products ul li{
+    margin: 10px;
+}
+.products p{
+    position: absolute;
+    top: 210px;
+    left: 105px;
+    color: rgb(158, 92, 114);
+    display: none;
+}
+.products>a>img:hover ~p{
+    display: block;
+}

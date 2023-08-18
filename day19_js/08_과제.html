@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+</head>
+<body>
+    <img src="" alt="">
+
+    <script>
+        let arr = ['/image/cat1.jpg','/image/dog1.jpg','/image/dog2.jpg', '/image/cat2.jpg'];
+        let image = document.getElementsByTagName('img')[0];
+        
+        function change(){
+            let ran = Math.floor(Math.random()*4); 
+            console.log(ran);
+            image.src = arr[ran];
+
+            //방법1
+            setTimeout(change, 1000); //함수 안에서 함수를 호출해 무한함수
+        }
+
+        //방법1
+        change();
+        
+        //방법2
+        // setInterval(change, 1000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 속성</title>
+    <!-- 표에 css 넣기 -->
+    <style>
+        table{
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+            /* 두줄을 한줄로 합쳐주는 기능 */
+        }
+        th, td{
+            border: 1px dashed rgb(0, 0, 0);
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            border-left: none;
+            border-right: none;
+        }
+        thead{
+            background-color: aliceblue;
+            border-top: 2px solid rgb(0, 0, 0);
+            border-bottom: 2px solid rgb(0, 0, 0);
+        }
+        tfoot{
+            border-bottom: 2px solid rgb(0, 0, 0);
+            background-color: rgb(214, 213, 213);
+        }
+        tbody>tr:nth-child(2n){
+            background-color: rgb(214, 213, 213);
+        }
+        tbody>tr:hover{
+            background-color: rgb(80, 110, 136);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>88</td>
+                <td>77</td>
+            </tr>
+            <tr>
+                <td>김영이</td>
+                <td>98</td>
+                <td>92</td>
+            </tr>
+            <tr>
+                <td>박길동</td>
+                <td>56</td>
+                <td>62</td>
+            </tr>
+            <tr>
+                <td>김미애</td>
+                <td>87</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>김철이</td>
+                <td>79</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>합계</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

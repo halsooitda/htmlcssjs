@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .main{
+            /* position: relative; */
+            width: 650px;
+            /* border: 3px solid #03c75a; */
+            border-radius: 6px;
+            
+        }
+        .left-box{
+            /* position: absolute; */
+            /* display: inline; */
+            height: 80px;
+            float: left;
+            border: 3px solid #03c75a;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            display: flex;
+        }
+        .right-box{
+            float: left;
+            border: 3px solid #03c75a;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        input{
+            border: none;
+            width: 400px;
+            height: 60px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            outline: none;
+            padding-left: 20px;
+            margin-top: 9px;
+        }
+        .keyboard{
+            width: 50px;
+            height: 80px;
+            background-color: white;
+            border: none;
+            color: rgb(206, 206, 206);
+            cursor: pointer;
+            
+        }
+        .add{
+            width: 50px;
+            height: 80px;
+            background-color: white;
+            border: none;
+            color: #03c75a;
+            cursor: pointer;
+            
+        }
+        .search{
+            width: 80px;
+            height: 80px;
+            border: 3px solid #03c75a;
+            color: white;
+            background-color: #03c75a;
+            float: right;
+            cursor: pointer;
+        }
+        .material-symbols-outlined{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="main">
+            <div class="left-box">
+                <input type="text" id="search" name="search">
+                
+                <button class="keyboard">
+                    <span class="material-symbols-outlined">keyboard</span>
+                </button>
+                <button class="add">
+                    <span class="material-symbols-outlined">arrow_drop_down</span>
+                </button>
+            </div>
+            
+            <div class="right-box">
+                <button type="submit" id="search" class="search" >
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

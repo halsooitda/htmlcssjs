@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>font 속성</title>
+    <!-- 
+        font.google.com
+    맘에 드는 폰트 골라서
+    select regular 400누르고
+    link복사해서 title 밑에 붙여넣기
+    CSS rules to specify families 복사해서
+    스타일 안에 폰트 지정해주고 싶은 곳에 font-family로 주기
+     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+    <style>
+        /* 
+        폰트 지정 : font-family
+        - 지정하려는 폰트를 ,로 나열
+        - 한글 폰트인 경우 한글이름, 영문이름으로 같이 사용
+        - 마지막 폰트는 기본형으로 지정 : serif
+        폰트 크기 : font-size
+        폰트 스타일 : font-style
+        폰트 굵기 : font-weight, 100~900사이의 값을 100단위로 지정
+         - 기본 700
+        여러 속성 한번에 지정 가능
+        font : (font-style font-weight) font-size font-family
+
+        - 글자에서 띄어쓰기가 있으면 ''를 써야 함
+        */
+        .font{
+            font-family: 'Diphylleia', serif;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 700;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="font">안녕하세요~</div>
+</body>
+</html>

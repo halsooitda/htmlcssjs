@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto</title>
+</head>
+<body>
+    <button type="button" id="ranBtn">랜덤번호 6개 출력하기</button>
+    <h3 id="randomNum"></h3>
+    <button type="button" id="winBtn">당첨번호 7개 출력하기</button>
+    <h3 id="winningNum"></h3>
+    <button type="button" id="reBtn">결과확인</button>
+    <h3 id="result"></h3>
+
+    <script>
+        const random = new Set();
+        const winning = new Set();
+        let arr = [];
+
+        document.getElementById('ranBtn').addEventListener('click', ()=>{
+            while(random.size < 6){
+                random.add(Math.floor(Math.random()*10)+1);
+            }
+
+            random.forEach(function(v){
+                console.log(v);
+                document.getElementById('randomNum').innerHTML += 
+                `${v} `;
+            })
+        })
+        
+        document.getElementById('winBtn').addEventListener('click', ()=>{
+            while(winning.size < 7){
+                winning.add(Math.floor(Math.random()*10)+1);
+            }
+            
+            winning.forEach(function(v){
+                console.log(v);
+                document.getElementById('winningNum').innerHTML += 
+                `${v} `;
+                arr += v;
+            })
+
+        })
+
+        document.getElementById('reBtn').addEventListener('click', ()=>{
+            let re = document.getElementById('result');
+
+            let count = 0;
+            winning.forEach(function(v){
+                if(random.has(v)){
+                    count++;
+                }
+            })   
+
+            switch(count){
+                case 6 : re.innerText =`1등 당첨`; break;
+                case 5 : if(random.has(arr[6])){
+                    re.innerText = '2등 당첨';
+                }else{
+                    re.innerText = `3등 당첨`;
+                } 
+                break;
+                case 4 : re.innerText = `4등 당첨`; break;
+                case 3 : re.innerText = `5등 당첨`; break;
+                default : re.innerText = `꽝`; break;
+            }
+        })
+    </script>
+</body>
+</html>

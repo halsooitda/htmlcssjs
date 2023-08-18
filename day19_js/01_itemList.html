@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itemList</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #wapper{
+            width: 600px;
+            margin: 0 auto; 
+            /* 가운데 정렬 */
+        }
+        h2{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+            background-color: rgb(161, 187, 212);
+            color: white;
+            padding: 30px 40px; 
+            /* 위아래 양옆 */
+        }
+        input{
+            border: none;
+            outline: none;
+            width: 450px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        button{
+            border: none;
+            padding: 10px;
+            width: 50px;
+            background-color: aliceblue;
+            box-shadow: 1px 1px 5px gray;
+            cursor: pointer;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            /* 기본 마진, 패딩 없애기 */
+            list-style: none;
+        }
+        ul li{
+            /* ul 아래의 모든 li 태그 */
+            cursor: pointer;
+            padding: 12px 8px 12px 30px;
+            background-color: aliceblue;
+            font-size: 15px;
+            position: relative;
+        }
+        ul li:nth-child(even){
+            background-color: rgb(206, 213, 221);
+        }
+        ul li:hover{
+            background-color: rgb(37, 88, 165);
+        }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 12px 20px;
+        }
+        .close:hover{
+            background-color: rgb(146, 146, 146);
+        }
+    </style>
+</head>
+<body>
+    <div id="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <!-- autofocus="true" -> 클릭하지 않아도 깜빡거리게 -->
+            <input type="text" id="item" autofocus="true">
+            <button type="button" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+    
+    <script>
+        let itemList = [];
+        let addBtn = document.getElementById('add');
+
+        addBtn.addEventListener('click', addList); //클릭시 addList function 실행
+
+        //item 추가 function - 배열에 추가
+        function addList(){
+            let item = document.getElementById('item').value;
+            if(item != null){ 
+                //null이 아닐 때만 배열에 값을 추가
+                itemList.push(item);
+                //값이 추가되고 난 후 input 값을 초기화
+                document.getElementById('item').value = '';
+                //추가 후 포커스 얻기
+                document.getElementById('item').focus(); 
+            }
+            console.log(itemList); //배열에 추가됐는지 확인
+            showList(); //추가 후 프린트하기
+        }
+        
+        //item 표시 function - 화면에 뿌리기
+        function showList(){
+            let list = '';
+            for(let i=0; i<itemList.length; i++){
+                list += `<li id="list${i}">${itemList[i]}<span class="close" id="${i}">X</span></li>`
+            }
+            //리스트 내용 표시
+            document.getElementById('itemList').innerHTML = list;
+
+            let remove = document.querySelectorAll('.close'); //close의 배열 형태로 추가
+            console.log(remove);
+            //remove 버튼을 클릭하면 removeList()를 호출
+            for(let i=0; i<remove.length; i++){
+                remove[i].addEventListener('click', removeList);
+            }
+        }
+
+        //item 삭제 function
+        function removeList(){
+            //Attribute -> class나 id속성을 가져올 수 있다
+            let id = this.getAttribute('id'); //this(클릭한 버튼)의 id의 값을 가져온다.
+            console.log(id);
+            itemList.splice(id, 1); //splice => id번지의 값 1개를 잘라내기
+            console.log(itemList);
+            showList(); //삭제 후 프린트하기
+        }
+    </script>
+</body>
+</html>

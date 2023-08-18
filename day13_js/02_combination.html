@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array & Object 조합</title>
+</head>
+<body>
+    <h1>
+        데이터를 다룰 때 배열과 객체를 혼용하여 다루는 경우가 많음
+    </h1>
+    <ul>
+        <li>
+            배열 안에 객체를 저장 후 그 객체 안에 다시 배열이 저장되어 있는 형태
+        </li>
+        <li>
+            이러한 조합의 형태에서는 for of, for in을 적절히 사용할 수 있어야 함
+        </li>
+        <li>
+            for of : 배열을 탐색 (Array) - value값만
+            for(저장변수 of 배열)
+        </li>
+        <li>
+            for in : 객체를 탐색 (Object) - name에 대한 value
+            for(키를 저장할 변수 in 객체){
+                객체명[키네임]; => value 추출
+            }
+        </li>
+    </ul>
+    
+    <script>
+        const memberObject = {
+            name: 'kim',
+            age: 20,
+            married: false,
+            favors : ["coffee", "game", "movie", "car", "etc..."],
+        };
+        console.log(memberObject);
+
+        const people = [];
+        //peole에 memberObject를 5명 추가
+        for(let i=0; i<5; i++){
+            let copy = Object.assign({}, memberObject); //비어있는 객체하나, 내가 만든 객체 하나
+            people.push(copy); //하나 복사해서 배열에 넣기
+        }
+        
+        people[1].name = 'park';
+        people[2].name = 'hong';
+        people[2].age = 21;
+        people[3].name = 'kang';
+        people[3].age = 30;
+        people[3].married = true;
+        people[4].name = 'lee';
+        // 객체 = 주소인데 주소가 하나라서 다 똑같이 바뀜, 이름 다 다르게 하고 싶으면 객체를 5개 넣어줘야 함
+        // 객체 복사해서 해결
+        console.log(people);
+        console.log("--------------");
+        //people 배열 탐색 => for of
+        for(let member of people){
+            console.log(member); //각각의 object {} 로 분리
+            //object 탐색 => for in
+            for(let keyName in member){ 
+                //객체 안의 배열 탐색
+                if(keyName == 'favors'){
+                    for(let favor of member[keyName]){ //객체명[키네임] = value
+                        console.log(favor);
+                    }
+                }else {
+                    console.log(keyName); //key
+                    console.log(member[keyName]); //value
+                }
+            }
+        } 
+        console.log("--------------------")
+
+        //object를 생성해서 배열에 5개 복사하여 등록
+        const person = {
+            name : '아이유',
+            age : 30,
+            addr : 'seoul',
+            playlist : {
+                song1 : '하루 끝',
+                song2 : '좋은날',
+                song3 : '비밀'
+            }
+        }
+        console.log(person.playlist.song1); // 객체 안의 객체의 값을 찍기
+
+        const singer = [];
+        for(let i=0; i<5; i++){
+            let copy = Object.assign({}, person);
+            singer.push(copy);
+        }
+        console.log(singer);
+
+        //탐색
+        for(let member of singer){ //배열의 값을 가져올 땐 const를 사용하기도 함. let대신
+            console.log(member); // member = 각 객체
+            //객체 탐색
+            for(let keyName in member){ // keyName = 객체의 keys
+                //객체 안의 객체 탐색
+                if(keyName == 'playlist'){
+                    for(let list in member[keyName]){ // list = 객체 playlist의 keys 
+                        console.log(list); // 객체 playlist의 key
+                        // console.log(member.playlist[list]); // 객체 playlist의 value
+                        console.log(member[keyName][list]);
+                    }
+                }else {
+                    console.log(keyName); // 객체 member의 key
+                    console.log(member[keyName]); // 객체 member의 value
+                }
+            }
+        }
+        </script>
+</body>
+</html>

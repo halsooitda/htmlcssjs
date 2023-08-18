@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link{
+            color: black;
+        }
+        a:visited{
+            color: brown;
+        }
+        a:active{
+            color: antiquewhite;
+        }
+        div{
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .naver{
+            background-color: blueviolet;
+        }
+
+        /* 누구한테 있는 li인지 명확하게 주는 게 좋다. */
+        ul>li{ 
+            font-size: 20px;
+            list-style: none; 
+            display: inline;
+            margin-right: 20px;
+        }
+        /* none 리스트 앞에 모양 없음 - 기본적으로 none으로 주고 시작함 */
+        /* display -> 기본 속성을 바꿀 수 있음 */
+        /* margin 공백, 띄어쓰기 */
+        ul>li:nth-child(2n){
+            color: red;
+        }
+        ul>li:nth-child(3n){
+            color: green;
+        }
+        /* 중복된 아이는 나중에 준 게 우선임. */
+        ul>li:first-child, li:last-child{
+            font-weight: 700;
+        }
+        ul>li:hover{
+            color: blue;
+        }
+        /* 
+        ::after : 뒤에 붙이는 가상 값
+        ::before : 전에 붙이는 가상 값
+         */
+        li::after{
+            content: " ] ";
+        }
+        li::before{
+            content: " [ ";
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="naver">
+        <a href="https://www.naver.com/" target="_blank">naver</a>
+    </div>
+    <div>
+        <a href="https://www.google.com" target="_blank">google</a>
+    </div>
+    <div class="naver">
+        <a href="https://www.daum.net/" target="_blank">daum</a>
+    </div>
+    <!-- 같은 클래스를 가지고 있다. = 같은 스타일을 받을 수 있다. -->
+
+    <!-- 메뉴 생성시 사용 -->
+    <ul>
+        <li>파일</li>
+        <li>편지</li>
+        <li>로그인</li>
+        <li>로그아웃</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</body>
+</html>

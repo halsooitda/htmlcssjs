@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+    <style>
+        @font-face {
+            font-family: font;
+            src: url(/font/Tektur/Tektur-VariableFont_wdth\,wght.ttf);
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: font;
+        }
+        .container{
+            background-image: url(/image/산.jpg);
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .design{
+            position: absolute;
+            top: 20px;
+            margin-left: 40px;
+        }
+        .design>a{
+            font-size: 40px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        .menu{
+            position: absolute;
+            top: 30px;
+            right: 40px;
+        }
+        .menu>a{
+            padding-right: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .menu>a:hover{
+            color: rgb(185, 63, 185);
+        }
+
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-size: 40px;
+            text-align: center;
+        }
+        .content>a{
+            border: 2px solid rgb(255, 122, 255);
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+        }
+        .content>a:hover{
+            background-color: white;
+            color: darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="design">
+            <a href="">DESIGN</a>
+        </div>
+        <div class="menu">
+            <a href="">HOME</a>
+            <a href="">LOGIN</a>
+            <a href="">SIGN UP</a>
+            <a href="">BOARD</a>
+        </div>
+        <div class="content">
+            <h1>Welcome to Front-End World</h1>
+            <a href="">Learn More</a>
+        </div>
+    </div>
+</body>
+</html>

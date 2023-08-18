@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습문제</title>
+        <!-- 
+        div 3개를 만들어
+        naver, google, daum 사이트로 연결되게 하고,
+        각 div는 색깔과 모양을 달리하여 스타일 주기.
+        color : 글자색
+        background-color : 면색(배경색)
+        폰트 관련 스타일들.
+
+        링크 클릭했는지에 따라서 글꼴색이 달라지는 가상선택자가 있음.
+        (의사선택자)
+        a:link(방문 전)
+        a:visited(링크를 눌러본 후 색)
+        a:active(클릭할 때 색)
+     -->
+
+     <!-- 
+        ul -> li 태그 10개 생성
+        전체 글자크기 크게(일정하게)
+        짝수 : 색 변경(빨간색)
+        3,6,9 : 초록색
+        1, 10 : 굵게
+        :hover 
+      -->
+    <style>
+        button{
+            font-size: 20px;
+            font-weight: 700;
+            width: 100px;
+            height: 50px;
+            background-color: white;
+        }
+        #naver{
+            color: forestgreen;
+        }
+        .google{
+            color: brown;
+        }
+        .daum{
+            color: blue;
+        }
+        a:hover{
+            #naver{
+                color: rgb(48, 87, 48);
+            }
+            .google{
+                color: rgb(104, 28, 28);
+            }
+            .daum{
+                color: rgb(35, 35, 106);
+            }
+        }
+      
+        /* 전체 글자 크기 일정 */
+        .list{
+            font-size: 30px;
+        }
+        /* 짝수 색변경 */
+        li:nth-child(even){
+            color: darkred;
+        }
+        /* 3,6,9 색변경 */
+        li:nth-child(3n){
+            color: darkgreen;
+        }
+        /* 1, 10 글씨 굵게 */
+        li:nth-child(1){
+            font-weight: 700;
+        }
+        li:nth-child(10){
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <a href="https://www.naver.com/" target="_blank">
+           <button id="naver">naver</button>
+        </a>
+    </div>
+    <div>
+        <a href="https://www.google.com" target="_blank">
+            <button class="google">google</button>
+        </a>
+    </div>
+<div>
+    <a href="https://www.daum.net/" target="_blank">
+        <button class="daum">daum</button>
+    </a>
+</div>
+    
+<br>
+오늘 일과
+<ul>
+    <li>씻기</li>
+    <li>아침식사</li>
+    <li>운동</li>
+    <li>샤워</li>
+    <li>청소</li>
+    <li>점심식사</li>
+    <li>학원</li>
+    <li>저녁식사</li>
+    <li>목욕</li>
+    <li>취침</li>
+</ul>
+</body>
+</html>

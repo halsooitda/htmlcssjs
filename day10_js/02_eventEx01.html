@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제</title>
+    <style>
+        form{
+            width: 260px;
+            text-align: center;
+        }
+        input, button{
+            margin: 10px;
+        }
+        input{
+            padding: 5px;
+        }
+        h3{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적표</legend>
+            <!-- type하고 실제 들어가는 값은 관계X, value값은 항상 string으로 처리되기 때문. -->
+            이름  <input type="text" id="name"><br>
+            국어  <input type="number" id="kor"><br> 
+            영어  <input type="number" id="eng"><br>
+            수학  <input type="number" id="math"><br>
+            <button type="button" onclick="print()">출력</button>
+        </fieldset>
+    </form>
+    <h3 id="score"></h3>
+
+    <script>
+        //이름, 국어, 영어, 수학 점수 입력받아
+        //합계와 평균을 화면에 출력
+        function print(){
+            let name = document.getElementById('name').value;
+            let kor = document.getElementById('kor').value;
+            let eng = document.getElementById('eng').value;
+            let math = document.getElementById('math').value;
+            console.log(name, kor, eng, math);
+
+            // kor = Number(kor);
+            // eng = Number(eng);
+            // math = Number(math);
+
+            // let score = document.getElementById('score');
+            // score.innerText = `이름 : ${name}
+            // 합계 : ${kor+eng+math}
+            // 평균 : ${(kor+eng+math)/3}`;
+
+            let sum = Number(kor)+Number(eng)+Number(math);
+            let avg = Math.round(sum / 3); //정수 단위로 반올림
+
+            let score = document.getElementById('score');
+            score.innerText = `이름 : ${name}
+            합계 : ${sum}
+            평균 : ${avg}`;
+
+            // document.getElementById('score').innerText =
+            // `이름 : ${name}, 합계 : ${sum}, 평균 : ${avg}`;
+        }
+    </script>
+</body>
+</html>

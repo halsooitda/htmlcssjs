@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빙고</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        tr, td{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+        tr:nth-child(2){
+            background-color: rgb(136, 179, 218);
+        }
+        tr>td:nth-child(1){
+            background-color: rgb(136, 179, 218);
+        }
+        tr>td:nth-child(){
+            background-color: rgb(136, 179, 218);
+        }
+        .row1>td:nth-child(5), 
+        .row2>td:nth-child(4), 
+        .row3>td:nth-child(3), 
+        .row4>td:nth-child(2), 
+        .row5>td:nth-child(1){
+            background-color: rgb(136, 179, 218);
+        }
+        .row5>td:nth-child(4){
+            background-color: rgb(136, 179, 218);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr class="row1">
+            <td>2</td>
+            <td>13</td>
+            <td>19</td>
+            <td>10</td>
+            <td>22</td>
+        </tr>
+        <tr class="row2">
+            <td>1</td>
+            <td>18</td>
+            <td>4</td>
+            <td>3</td>
+            <td>8</td>
+        </tr>
+        <tr class="row3">
+            <td>9</td>
+            <td>20</td>
+            <td>5</td>
+            <td>17</td>
+            <td>21</td>
+        </tr>
+        <tr class="row4">
+            <td>16</td>
+            <td>6</td>
+            <td>25</td>
+            <td>23</td>
+            <td>15</td>
+        </tr>
+        <tr class="row5">
+            <td>12</td>
+            <td>7</td>
+            <td>24</td>
+            <td>14</td>
+            <td>11</td>
+        </tr>
+    </table>
+</body>
+</html>

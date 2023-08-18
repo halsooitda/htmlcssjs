@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1f1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator{
+            border: 1px solid #333;
+            background-color: #ccc;
+            padding: 5px;
+        }
+        .calculator form{
+            display: grid;
+            grid-template-columns: repeat(4, 65px);
+            grid-auto-rows: 65px;
+            gap: 5px;
+        }
+        .calculator form button, input{
+            font-size: 1rem;
+            /* font-weight: bold; */
+            border: 2px solid black;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .calculator form button:hover{
+            box-shadow: 1px 1px 2px #333;
+        }
+        .calculator form .clear{
+            background-color: orangered;
+        }
+        .calculator form .operator{
+            background-color: orange;
+        }
+        .calculator form .dot{
+            background-color: greenyellow;
+        }
+        .calculator form input[type='text']{
+            grid-column: span 4;
+            text-align: right;
+            background-color: white;
+        }
+        .calculator form .clear{
+            grid-column: span 3;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .calculator form .result{
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form name="forms">
+            <input type="text" id="output" name="output" >
+            <button type="button" class="clear" value="C">C</button>
+            <button type="button" class="operator" value="/">/</button>
+            <button type="button" class="number" value="1">1</button>
+            <button type="button" class="number" value="2">2</button>
+            <button type="button" class="number" value="3">3</button>
+            <button type="button" class="operator" value="*">*</button>
+            <button type="button" class="number" value="4">4</button>
+            <button type="button" class="number" value="5">5</button>
+            <button type="button" class="number" value="6">6</button>
+            <button type="button" class="operator" value="+">+</button>
+            <button type="button" class="number" value="7">7</button>
+            <button type="button" class="number" value="8">8</button>
+            <button type="button" class="number" value="9">9</button>
+            <button type="button" class="operator" value="-">-</button>
+            <button type="button" class="dot" value=".">.</button>
+            <button type="button" class="number" value="0">0</button>
+            <button type="button" class="result" value="=">=</button>
+        </form>
+    </div>
+
+    <script>
+        let output = document.getElementById('output');
+        let inputVal; //클릭한 값을 저장할 변수
+        let num1;
+        let num2; 
+        let op;
+
+        document.addEventListener('click',(e)=>{
+            console.log(e.target.value); //클릭한 값
+            // console.log(e.target.classList.value); //클래스명
+            
+            if(e.target.classList.value == 'number' || e.target.classList.value == 'dot'){
+                output.value += e.target.value; //화면에 띄우기
+                inputVal = output.value; //화면에 띄운 값 저장
+            //연산자
+            }else if(e.target.classList.value == 'operator'){
+                output.value = ''; //화면리셋
+                op = e.target.value;
+                num1 = Number(inputVal); //숫자1
+            //계산
+            }else if(e.target.classList.value == 'result'){
+                output.value = ''; //화면리셋
+                num2 = Number(inputVal); //숫자2
+                output.value = cal();
+            //클리어
+            }else if(e.target.classList.value == 'clear'){
+                del();
+            }
+            console.log(num1+" -> num1");
+            console.log(num2+" -> num2");
+        })
+        
+        //계산 함수
+        function cal(){
+            switch(op){
+                case '/' :  return (num1/num2).toFixed(2); break;
+                case '*' :  return (num1*num2); break;
+                case '+' :  return (num1+num2); break;
+                case '-' :  return (num1-num2); break;
+            }
+        }
+
+        //클리어 함수
+        function del(){
+            output.value = '';
+            num1 = 0;
+            num2 = 0;
+            op = '';
+        }
+
+    </script>
+</body>
+</html>

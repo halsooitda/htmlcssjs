@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float 연습</title>
+    <!-- 
+        부모 박스 안에 box 3개 넣기, 가로로 나열(left)
+        부모 박스의 크기 500px*500px
+     -->
+     <style>
+        .p-box{
+            width: 500px;
+            height: 500px;
+            background-color: rgb(212, 255, 215);
+        }
+        /*
+        calc(식) 
+        - 단위가 다른 값들을 계산해야 할 때 사용
+        - 딱 떨어지지 않는 값을 줄 때
+        - 연산자 앞 뒤로 띄어쓰기 필수
+         */
+        .box{
+            width: calc(100% / 3);
+            height: 500px;
+            float: left;
+            border: 1px solid rgb(148, 138, 138);
+            box-sizing: border-box;
+        }
+     </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

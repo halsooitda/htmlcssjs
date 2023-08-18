@@ -1,0 +1,51 @@
+h1{
+    width: 150px;
+    height: 50px;
+    border: 5px solid black;
+    margin: 30px auto;
+    text-align: center;
+}
+/* 
+- 1개만 주는 경우
+margin : 10px; 상하좌우 전체 10px
+- 2개만 주는 경우
+margin : 30px상하 auto좌우; - 위아래만 30, 나머지는 자동
+- 마진 순서
+margin : top - right - bottom - left 
+- 3개만 주는 경우
+margin : top (left-right) bottom - ex) 10px 20px 10px / 위아래 10 양옆 20
+*/
+/* line-height 박스의 높이만큼 주면 중앙으로 오게 함. */
+
+ul{
+    text-align: center;
+    padding: 0;
+    /* ul은 항상 앞에 40만큼 여백을 가짐
+       그걸 없애주기 위해 패딩 0을 줌 */
+}
+
+ul>li{
+    font-size: 20px;
+    display: inline;
+    margin-right: 20px;
+    list-style: none;
+}
+
+li:first-child{
+    font-weight: 700;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 500px;
+    height: 300px;
+}
+
+div{
+    margin-top: 30px;
+    text-align: center;
+}
+

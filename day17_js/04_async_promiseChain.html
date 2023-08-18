@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise chain 방식</title>
+    <style>
+        li{
+            list-style: none;   
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Promise 객체를 리턴하는 함수를 호출하는 함수
+        then 메서드를 사용하여 실행순서를 기다려서 프로미스 객체를 사용
+    </h1>
+    <ul>
+        <li>
+            fetch 함수 : 데이터 통신을 위해 제공되는 함수
+            첫 파라미터는 url, 두번째 파라미터 header에 적용될 객체
+        </li>
+        <li>
+            then 메서드 : promise 객체를 리턴하는 함수 및 메서드를 기다려서
+            다음 순서의 로직을 수행하기 위한 연결기능을 한다 
+        </li>
+    </ul>
+    <button type="button" id="btn">데이터 가져오기</button>
+    <ul id="ul"></ul>
+    
+    <script>
+        // document.getElementById('btn').addEventListener('click',()=>{
+        //     for(let i=1; i<=5; i++){
+        //         fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
+        //         .then(resp => resp.json()) //fetch에서 응답해 받은 값을 받아주는 변수 resp
+        //         .then(json => {for(const key in json){
+        //             console.log(`${key} : ${json[key]}`);}
+        //             console.log("----------------------")}) //성공시
+        //         .catch(err => console.log(err)); //에러시
+        //     }
+        // })
+
+        // document.getElementById('btn').addEventListener('click',()=>{
+        //     async function awaitEx(){
+        //         for(let i=1; i<=5; i++){
+        //             await fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
+        //             .then(resp => resp.json())
+        //             .then(json => {for(const key in json){
+        //                 console.log(`${key} : ${json[key]}`);}
+        //                 console.log("----------------------")}) //성공시
+        //                 .catch(err => console.log(err)); //에러시
+        //             }
+        //         }
+        //         awaitEx();
+        //     })
+        //await 사용하면 id숫자 순서대로 나옴.
+        //사용 안 하면 빨리 처리된 것부터 찍어내게됨.
+        
+        document.getElementById('btn').addEventListener('click',()=>{
+            for(let i=1; i<=5; i++){
+                fetch('https://jsonplaceholder.typicode.com/todos/'+i)
+                .then(resp => resp.json()) 
+                .then(json => print(json)) 
+                .catch(err => console.log(err));  //chain이므로 앞의 것이 실행이 안되면 뒤가 실행될 수 없으므로
+                                                  //await를 기본적으로 가지고 있다고 생각하면 됨. await필요X
+            }
+        })
+
+        function print(obj){
+            for(const k in obj){
+                console.log(`${k} : ${obj[k]}`);
+               document.getElementById('ul').innerHTML += `<li>${k} : ${obj[k]}</li>`;
+               
+            }
+            console.log("------------------");
+            document.getElementById('ul').innerHTML += `<li>-----------------</li>`;
+        }
+    </script>
+</body>
+</html>

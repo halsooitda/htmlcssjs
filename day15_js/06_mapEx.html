@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 예제</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성
+        과목, 점수
+        추가버튼 => map추가 function
+        출력버튼 => map을 출력 ul=>li로 출력 listener
+        결과버튼 => 합계, 평균, 평가(평균 80이상이면 통과, 아니면 탈락) => h3 listener
+     -->
+
+     과목 : <input type="text" id="sub"><br>
+     점수 : <input type="text" id="score"><br>
+     <button type="button" onclick="addScore()">추가</button>
+     <button type="button" id="printBtn">출력</button>
+     <button type="button" id="resultBtn">결과</button>
+     <ul id="print"></ul>
+     <h3 id="result"></h3>
+
+     <script>
+        const myScore = new Map();
+
+        //추가
+        function addScore(){
+            let sub = document.getElementById('sub').value;
+            let score = Number(document.getElementById('score').value);
+
+            myScore.set(sub,score);
+            console.log(myScore);
+        }
+
+        //출력
+        document.getElementById('printBtn').addEventListener('click',()=>{
+            let print = document.getElementById('print');
+            
+            myScore.forEach(function(v, i){
+                print.innerHTML += `<li> ${i} : ${v} </li>`;
+            })
+        })
+
+        //결과
+        document.getElementById('resultBtn').addEventListener('click',()=>{
+            let result = document.getElementById('result');
+            let sum = 0;
+            let a; //평가
+
+            for(const iter of myScore.values()){
+                sum += iter
+            }
+
+            let avg = (sum/myScore.size).toFixed(2);
+            
+            if(avg >= 80){
+                a = '통과';
+            }else {
+                a = '탈락';
+            }
+            
+            result.innerText = `합계 : ${sum} / 평균 : ${avg} / 평가 : ${a}`;
+
+        })
+     </script>
+</body>
+</html>

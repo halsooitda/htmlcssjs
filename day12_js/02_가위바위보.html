@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>가위 바위 보 게임 10번 승률 출력</h3>
+    <button type="button" id="btn">승률출력</button>
+    <h3>
+        10번 게임의 승률은 <span id="result"> </span> % 입니다.
+    </h3>
+
+    <script>
+        //가위 바위 보는 com => 랜덤, player => 랜덤
+        //승률계산 (승리/(10-무))*100
+        //1=가위, 2=바위, 3=보
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let com;
+            let player;
+            let win = 0;
+            let same = 0;
+
+            let count = 1;
+            while(count <= 10){
+                com = Math.floor(Math.random()*3)+1;
+                player = Math.floor(Math.random()*3)+1;
+
+                if(com == 1){
+                    if(player == 2){
+                        win++;
+                    }else if(player == 1){
+                        same++;
+                    }
+                }else if(com == 2){
+                    if(player == 3){
+                        win++;
+                    }else if(player == 2){
+                        same++;
+                    }
+                }else {
+                    if(player == 1){
+                        win++;
+                    }else if(player == 3){
+                        same++;
+                    }
+                }
+                count++;
+            }
+            console.log(`승 : ${win} / 무승부 : ${same}`);
+
+            // document.getElementById('result').innerText
+            // = `${Math.floor(win/(10-same)*100)}`;
+            
+            document.getElementById('result').innerText
+            = ((win/(10-same))*100).toPrecision(4)
+            // .toPrecision(정수자리+소수자리) : 전체 자리수 포함 자리수
+        })
+
+    </script>
+</body>
+</html>

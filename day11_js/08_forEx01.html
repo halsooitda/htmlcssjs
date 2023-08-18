@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 for문</title>
+</head>
+<body>
+    <h1>
+        구구단 2 ~ 9단까지 출력
+    </h1>
+    <button type="button" onclick="print()">구구단 출력</button>
+    <h3 id="gugudan"></h3>
+    <table>
+        <tr id="table">
+        </tr>
+    </table>
+
+    <script>
+        function print(){
+            // for(let i=2; i<=9; i++){
+            //     for(let j=1; j<=9; j++){
+            //         document.getElementById('gugudan').innerText
+            //         += `${i}*${j}=${i*j}
+            //         `;
+            //         if(j==9){
+            //             document.getElementById('gugudan').innerText
+            //             += `
+            //                 `;
+            //         }
+            //     }
+            // }
+            for(let i=2; i<=9; i++){
+                for(let j=1; j<=9; j++){ 
+                    document.getElementById('table').innerHTML
+                    += `<tr>${i}*${j}=${i*j}</tr> `;
+                    if(j==9){
+                        document.getElementById('table').innerHTML
+                        += `<td></td>`;
+                    }
+                }
+            }  
+        }
+    </script>
+</body>
+</html>

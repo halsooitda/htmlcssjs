@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 문제</title>
+</head>
+<body>
+    <h1>
+        구구단 영역(2*1=2 ~ 9*9=81)내에서 랜덤으로 문제를 내면 정답을 맞추는 로직
+    </h1>
+    <ul>
+        <li>총 문제는 10문제 출제</li>
+        <li>문제를 풀 때 정답, 오답의 결과를 나타냄</li>
+        <li>총 10개의 문제 중 정답률을 출력</li>
+    </ul>
+    <button type="button" onclick="qPrint()">문제출제</button>
+    <ol id="q"></ol>
+    <button type="button" id="aBtn" onclick="answer()">정답확인</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let dan = 0;
+        let num = 0;
+        let q = document.getElementById('q');
+        let ans = {};
+
+        //문제출제
+        function qPrint(){
+            let str = '';
+
+            for(let i=1; i<=10; i++){
+                dan = Math.floor(Math.random()*8)+2;
+                num = Math.floor(Math.random()*9)+1;
+
+                str += `<li> ${dan} x ${num} = <input type="text" id="userAns${i}"></li>`;
+                
+            };
+            q.innerHTML = str;
+
+        }
+
+        //정답확인
+        function answer(){
+            let userAns;
+
+            for(let i=1; i<=10; i++){
+
+
+
+            };
+        }
+
+        //정답률
+        document.getElementById('aBtn').addEventListener('click',()=>{
+
+        });
+
+
+    </script>
+</body>
+</html>

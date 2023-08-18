@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>
+        객체 : 식별할 수 있는 것을 상세 특징으로 표현하려는 형식
+    </h1>
+    <ul>
+        <li>
+            const로 선언하는 것이 일반적 : 객체의 지속성을 유지하기 위해서(객체가 변하는 것을 방지하기 위해서)
+        </li>
+        <li>
+            { } 속성명: 속성값, 속성명: 속성값, ... 표현
+        </li>
+        <li>
+            같은 객체 내에서 속성명은 중복되면 안됨. (고유 키)
+        </li>
+        <li>
+            객체 내부의 속성 값으로 사용될 수 있는 데이터의 타입은 제한이 없다.
+        </li>
+        <li>
+            (변형이 가능한 클래스라고 생각할 수 있음)
+            객체의 속성 값으로 익명함수를 정의할 수 있다. => 그 함수를 메서드라고 부른다.
+            메서드 이름은 속성명이 됨
+        </li>
+    </ul>
+    <script>
+        const car={ name: 'myCar', year: 2023 };
+        // car = 100; const -> 재할당 불가능. 에러남
+        console.log(car);
+
+        let myCar={name: 'superCar', year: 2023}; //가능은 하나 일반적이지 않다.
+        myCar = 100; //let이므로 가능. 
+        console.log(myCar);
+        // myCar의 객체는 사라짐 - 객체를 활용하려고 했던 목적이 사라짐.
+    </script>
+    <script>
+        const me = {
+            name : '강서연',
+            age : 20,
+            addr : 'incheon',
+            isDeveloper : true,
+            'hobby' : 'game',
+            'myFavor' : 'game',
+            avail : {
+                year : 2020,
+                title : 'javascript',
+                ver : 'ES6+',
+                project : 'Back-End',
+                intro : function(){
+                    console.log(`${me.avail.title}:${me.avail.ver}`);
+                    return `re: ${this.title}:${this.ver}`; //this = 내 객체 안의
+                }
+            },
+            year : 2023
+        };
+
+        console.log(me);
+        console.log(me.name);
+        console.log(me.year);
+        console.log(me.avail.year);
+        console.log(me.avail.title);
+        console.log(me.avail.ver);
+        console.log(me.avail.intro); //함수를 지목 (실행X)
+        console.log(me.avail.intro()); //함수를 실행 
+        // intro의 콘솔은 55번줄에서 찍히는 것이고 리턴값은 69번줄에서 찍히는 것임
+        console.log("---------------");
+
+        console.log(me["addr"]); //.대신 []이고 안의 값이 text로 와야 함
+        console.log(me['hobby']);
+        console.log(me['avail']['title']);
+        console.log(me['avail']['intro']()); //함수실행
+
+        let keyName = 'age'; // 원하는 값 넣을 수 있음
+        console.log(me[keyName]); //keyName은 me안의 값이 아니므로 .을 찍을 수 없음 이럴 때 []사용
+
+        console.log(me['avail'].title); //섞어쓰는 것도 가능
+    </script>
+    <script>
+        //객체 생성 : 좋아하는 가수의 인적사항, 가수의 플레이리스트 3곡
+        //이름,나이,주소,플레이리스트(객체로 3곡), 함수로 3곡(플레이리스트의 곡을 콘솔에 출력)
+        const singer = {
+            name : '아이유',
+            age : 30,
+            addr : 'seoul',
+            playlist : {
+                song1 : '하루 끝',
+                song2 : '좋은날',
+                song3 : '비밀'
+            },
+            list : function(/*f,s,t*/){
+                console.log(`playlist : ${this.playlist.song1}, ${this.playlist.song2}, ${singer.playlist.song3}`);
+                // return `re: ${f}, ${s}, ${t}`;
+            }
+        }
+        console.log("--------------------------------");
+        console.log(singer);
+        console.log(`${singer.name} | ${singer.age} | ${singer.addr}`);
+        singer.list();
+        // console.log(singer.list('aaa','bbb','ccc')); 매개변수 넣어도 되고 안 넣어도 됨~
+    </script>
+</body>
+</html>

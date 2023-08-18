@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>li 추가</title>
+</head>
+<body>
+    <button type="button" id="btn1">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn2">Li Tag 하나씩 추가하기</button>
+    <button type="button" id="btn3">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn4">Li Tag 하나씩 추가하기</button>
+    <ul id="ul"></ul><hr>
+    <ol id="ol"></ol><hr>
+    <ul id="ul2"></ul><hr>
+    <ol id="ol2"></ol><hr>
+
+    <script>
+        const arr = ['HTML', 'CSS', 'JavaScript','SQL']
+
+        document.getElementById('btn1').addEventListener('click',()=>{
+            const ul = document.getElementById('ul');
+            let str = '';
+            for(let i=0; i<arr.length; i++){
+                str += `<li>${arr[i]}</li>`; 
+            }
+            ul.innerHTML = str;
+        })
+        
+        let cnt = 0;
+        document.getElementById('btn2').addEventListener('click',()=>{
+            if(cnt<arr.length){
+                const ol = document.getElementById('ol');
+                ol.innerHTML += `<li>${arr[cnt]}</li>`;
+                cnt++;
+            }
+        })
+
+        //appendchild 사용
+        //createElement -> 옛날 방식
+        document.getElementById('btn3').addEventListener('click',()=>{
+            let ul2 = document.getElementById('ul2');
+            arr.forEach((elem)=>{ //function 생략가능
+                let li = document.createElement('li'); //str = `<li></li>`
+                li.innerText = elem; //str = `<li>${elem}</li>`
+                ul2.appendChild(li); //innerHTML = str;
+            })
+        });
+
+        let index = 0;
+        const ol2 = document.getElementById('ol2');
+        document.getElementById('btn4').addEventListener('click',()=>{
+            if(index < arr.length){
+                let li = document.createElement('li');
+                li.innerText = arr[index];
+                ol2.appendChild(li);
+                index++;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event3</title>
+</head>
+<body>
+    <button type="button" id="makeBtn">엘리먼트 만들기</button>
+    <div id="zone"></div>
+    <h2 id="text"></h3>
+
+    <script>
+        let zone = document.getElementById('zone');
+        let text = document.getElementById('text');
+        
+        document.getElementById('makeBtn').addEventListener('click', ()=>{
+            zone.innerHTML = `<button type="button" id="newBtn">생성된 버튼</button>`;
+            //선생님 방법
+            // let newBtn = `<button type="button" id="newBtn">생성된 버튼</button>`;
+            // document.getElementById('zone').innerHTML = newBtn;
+
+            document.getElementById('newBtn').addEventListener('click', ()=>{
+                text.innerText = `생성된 버튼을 클릭함!`;
+            })
+        })  
+        //첫 화면 시점에 newBtn id가 없으면 안됨
+        //document.getElementById('newBtn').addEventListener
+
+        //동적으로 생성된 엘리먼트에 이벤트를 부여
+        //문서 전체에 리스너를 장착
+        document.addEventListener('click',(e)=>{
+            console.log(e.target.id);
+            if(e.target.id == 'newBtn'){
+                document.getElementById('zone').innerHTML += 
+                `<h3>생성된 버튼을 클릭함!</h3>`;
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event2</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body{
+            background-color: black;
+        }
+        .icon{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .material-symbols-outlined{
+            font-size: 50px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">
+        <span class="material-symbols-outlined">bolt</span>
+    </div>
+
+    <script>
+        //전체화면에 리스너를 깔아줌
+        document.addEventListener('mousemove', (e)=>{ //전체 화면에서 마우스가 움직이는 전부 다 = e
+            console.log(e);
+            let icon = document.querySelector('.icon');
+            icon.style.left = e.pageX+'px';
+            icon.style.top = e.pageY+'px';
+        })
+    </script>
+</body>
+</html>

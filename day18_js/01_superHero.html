@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>superHero</title>  
+    <style>
+        @font-face {
+            font-family: font;
+            src: url(/font/Bungee_Inline/BungeeInline-Regular.ttf);
+        }
+        body{
+            text-align: center;
+
+        }
+        #header{
+            margin-bottom: 50px;
+        }
+        #header > h1{
+            font-size: 70px;
+            font-family: font;
+            background-image: linear-gradient(to right, blue, skyblue);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            /* background-clip은 background 를 어디까지 적용시키는지에 대한 것이다.
+            우리는 텍스트에 배경색을 채워야 하므로, text를 적어주자.
+            background-clip만 적으면 텍스트 원래 색인 검은색 배경에 그라디언트가 적용 된다.
+            이를 보여주게 하려면 텍스트 원래의 색을 투명하게 만들어야 하기 때문에
+            color: transparent를 적용시킨다. */
+        }
+        #hero{
+            display: inline-block;
+            vertical-align: text-top; 
+            /* 글자를 위쪽 라인을 기준으로 맞춤 */
+            margin: 0 30px;
+            text-align: left;
+        }
+        #hero > div:first-child{
+            font-size: 20px;
+            font-family: font;
+            background-image: linear-gradient(to right, blue, skyblue);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            
+        }
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+    <section id="section"></section>
+
+    <script>
+        //ajax(비동기통신) 통한 데이터를 가져오기
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(json => printData(json));
+
+        const header = document.getElementById('header');
+        const section = document.getElementById('section');
+
+        function printData(obj){
+            console.log(obj);
+
+            //header 객체에 넣을 str 생성
+            let str = '';
+            str += `<h1>${obj.squadName}</h1>`;
+            str += `<h3>Hometown : ${obj.homeTown} // Formed : ${obj.formed}</h3>`;
+            header.innerHTML = str;
+
+            //section 객체에 넣을 str 생성
+            for(let i=0; i<obj.members.length; i++){
+                let member = obj.members[i];
+                let str2 = `<div id="hero">`;
+                    str2 += `<div>${member.name}</div>`;
+                    str2 += `<div>SecretIdentity : ${member.secretIdentity}</div>`;
+                    str2 += `<div>Age : ${member.age}</div>`;
+                    str2 += `<div>Superpowers : <ul id="power${i}"></ul> </div>`;
+                    str2 += `</div>`;
+                    section.innerHTML += str2;
+
+                    for(let j=0; j<obj.members[i].powers.length; j++){
+                        document.getElementById(`power${i}`).innerHTML += 
+                        `<li>${obj.members[i].powers[j]}</li>`;
+                    }
+            }
+        }
+
+    </script>
+</body>
+</html>

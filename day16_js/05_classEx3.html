@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("---예제---");
+        //class User 생성
+        //생성자로 name, birth를 받아서 멤버변수로 저장
+        //age() 나이를 리턴
+        //status() 성인인지 미성년자인지 콘솔에 출력
+        //생성자에서 선언된 값을 리턴시
+        // get age(){
+        //     return this._age; // _ 내부속성이다 라는 뜻
+        // }
+
+        let birthday = new Date('2009-01-01'); //2000년도는 풀로 적어야 함
+        console.log(birthday.toLocaleDateString());
+
+
+        class User{
+            constructor(name, birth){
+                this.name = name;
+                this.birth = new Date(birth);
+            }
+
+            get getAge(){
+                let today = new Date();
+                let age = today.getFullYear() - this.birth.getFullYear();
+                return age;
+            }
+
+            status(){
+                // console.log(this.age);
+                if(this.getAge >= 20){ //내 멤버변수에 있는 getAge라는 get을 호출함
+                    console.log("성인"); //getAge가 메서드라면 this.getAge() 괄호 붙여서 호출
+                }else {
+                    console.log("미성년자");
+                }
+            }
+        }
+
+        let me = new User('강서연','2001-01-01');
+        console.log(me.getAge);
+        me.status();
+        //get은 ()없음 , 메서드는 ()붙여야 함.
+    </script>
+</body>
+</html>
